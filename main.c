@@ -32,13 +32,13 @@
 {
     char checking_val;
     printf("please enter the character :");
-    scanf("%c",char_1);
+    scanf("%c",&char_1);
     printf("%c \n ",char_1);
     printf("please enter your name :");
     scanf("%s",&name);
     printf("\n %s \n",name);
     checking_val = find_first(&name,char_1);
-    printf("returned value = %c",checking_val);
+    printf("returned value = 0x%X",checking_val);
     return 0;
 }
 /* ********************** Sub-Program Section End ******************** */
@@ -49,14 +49,17 @@ char *find_first(char *str, char ch)
     int i;
     int return_val=0;
     for (i=0; i<10; i++)
+    {
         if (ch==*(str++))
         {
            return_val=str;
+           break;
         }
         else
         {
            return_val=NULL;
         }
+    }
     return &return_val;
 }
 
